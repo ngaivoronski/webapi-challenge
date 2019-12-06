@@ -6,6 +6,7 @@ import ProjectList from './components/ProjectList';
 import Project from './components/Project';
 import AddProject from './components/AddProject';
 import AddComment from './components/AddComment';
+import EditProject from './components/EditProject';
 
 function App() {
   const [projects, setProjects] = useState([]);
@@ -28,12 +29,20 @@ function App() {
       }}
       />
       <Route
-        path="/projects/:id"
+        exact path="/projects/:id"
         render={props => {
           return <Project {...props} />;
         }}
       />
+
       <Route exact path="/addproject" component={AddProject} />
+
+      <Route
+        exact path="/projects/:id/edit"
+        render={props => {
+          return <EditProject {...props} />;
+        }}
+      />
       
       {/* <Route
         path="/posts/:id/addcomment"
