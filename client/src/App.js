@@ -5,7 +5,7 @@ import './App.css';
 import ProjectList from './components/ProjectList';
 import Project from './components/Project';
 import AddProject from './components/AddProject';
-import AddComment from './components/AddComment';
+import AddAction from './components/AddAction';
 import EditProject from './components/EditProject';
 
 function App() {
@@ -44,12 +44,12 @@ function App() {
         }}
       />
       
-      {/* <Route
-        path="/posts/:id/addcomment"
+      <Route
+        path="/projects/:id/addaction"
         render={props => {
-          return <AddComment {...props} />;
+          return <AddAction {...props} />;
         }}
-      /> */}
+      />
     </div>
   );
 }
