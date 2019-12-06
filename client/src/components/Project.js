@@ -22,6 +22,10 @@ function PostList(props) {
         props.history.push(`/projects/${props.match.params.id}/addaction`)
     }
 
+    const editAction = (actionID) => {
+        props.history.push(`/projects/${props.match.params.id}/${actionID}/edit`)
+    }
+
     const deleteProject = () => {
         axios.delete(`http://localhost:4000/api/projects/${props.match.params.id}`)
         .then(props.history.push('/'))
@@ -86,6 +90,7 @@ function PostList(props) {
                             <p><b>{action.description}</b></p>
                             <p>Notes: {action.notes}</p>
                             <p>Status: {action.completed ? "Completed" : "Open"}</p>
+                            <button onClick={() => editAction(action.id)}>Edit Action</button>
                             <button onClick={() => deleteAction(action.id)}>Delete Action</button>
                         </div>
                     )

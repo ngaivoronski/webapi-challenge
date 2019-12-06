@@ -39,7 +39,7 @@ function EditProject(props) {
 
     return (
         <div>
-            <h1>Add a project!</h1>
+            <h1>Edit a project!</h1>
             <form onSubmit={submitEdits}>
                 <label htmlFor="name">Name: </label>
                 <input type="text" name="name" value={editProject.name} onChange={changeHandler}></input>

@@ -7,6 +7,7 @@ import Project from './components/Project';
 import AddProject from './components/AddProject';
 import AddAction from './components/AddAction';
 import EditProject from './components/EditProject';
+import EditAction from './components/EditAction';
 
 function App() {
   const [projects, setProjects] = useState([]);
@@ -48,6 +49,13 @@ function App() {
         path="/projects/:id/addaction"
         render={props => {
           return <AddAction {...props} />;
+        }}
+      />
+
+      <Route
+        exact path="/projects/:id/:actionID/edit"
+        render={props => {
+          return <EditAction {...props} />;
         }}
       />
     </div>
