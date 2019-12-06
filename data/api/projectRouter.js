@@ -129,6 +129,18 @@ router.delete('/:id', validateProjectID, (req, res, next) => {
     });
 });
 
+// Get a list of actions by project
+
+router.get('/:id/actions', validateProjectID, (req, res) => {
+    projectDb.getProjectActions(req.params.id)
+    .then(actions => {
+    res.status(200).json(actions);
+    })
+    .catch(err => {
+    res.status(500).json({ error: "Actions for the specific project could not be retrieved." });
+    })
+});
+
 // Add an action
 
 router.post('/:id/actions', validateProjectID, validateAction, (req, res, next) => {
