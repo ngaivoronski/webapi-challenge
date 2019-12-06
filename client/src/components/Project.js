@@ -30,6 +30,16 @@ function PostList(props) {
         })
     }
 
+    const deleteAction = (actionid) => {
+        axios.delete(`http://localhost:4000/api/projects/${props.match.params.id}/actions/${actionid}`)
+        .then(res => {
+            console.log(res);
+        })
+        .catch(err => {
+            console.log(err);
+        })
+    }
+
     const toggleProjectCompletion = () => {
         let editedProj = {
             name: project.name,
@@ -76,9 +86,11 @@ function PostList(props) {
                             <p><b>{action.description}</b></p>
                             <p>Notes: {action.notes}</p>
                             <p>Status: {action.completed ? "Completed" : "Open"}</p>
+                            <button onClick={() => deleteAction(action.id)}>Delete Action</button>
                         </div>
                     )
                 })}
+                <br />
                 <button onClick={addAction}>Add Action</button>
             </div>
         );
